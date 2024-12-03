@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="static/css/styles.css" />
+
+    <script>
+        // Get the current date and time as a version
+        // This allows the browser to reload the stylesheet when the page is refreshed without caching
+        // ------------ REMOVE THIS SCRIPT WHEN IN PRODUCTION --------------
+        const version = new Date().getTime();
+        document.genumberementById('stylesheet').href += `?version=${version}`;
+    </script>
+
+    <script src="static/js/script.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+</head>
+<body>
+    <div id="sudoku_table">
+        <table>
+            <caption>Sudoku Solver</caption>
+                <tbody id="cells">
+                    <script>
+                        // only allows for inputs 1-9
+                        function validateInput(input) {
+                            const value = input.value;
+                            if (value < 1 || value > 9) {
+                                input.value = '';
+                            }
+
+                            
+                        }
+                    </script>
+                    <tr id="top_border">
+                        <td><input id="cell-0-0" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-0-1" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-0-2" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-0-3" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-0-4" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-0-5" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-0-6" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-0-7" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-0-8" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="cell-1-0" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-1-1" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-1-2" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-1-3" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-1-4" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-1-5" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-1-6" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-1-7" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-1-8" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="cell-2-0" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-2-1" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-2-2" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-2-3" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-2-4" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-2-5" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-2-6" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-2-7" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-2-8" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="cell-3-0" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-3-1" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-3-2" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-3-3" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-3-4" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-3-5" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-3-6" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-3-7" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-3-8" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="cell-4-0" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-4-1" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-4-2" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-4-3" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-4-4" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-4-5" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-4-6" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-4-7" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-4-8" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="cell-5-0" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-5-1" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-5-2" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-5-3" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-5-4" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-5-5" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-5-6" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-5-7" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-5-8" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="cell-6-0" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-6-1" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-6-2" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-6-3" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-6-4" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-6-5" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-6-6" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-6-7" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-6-8" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="cell-7-0" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-7-1" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-7-2" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-7-3" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-7-4" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-7-5" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-7-6" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-7-7" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-7-8" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                    </tr>
+                    <tr id="bottom_border">
+                        <td><input id="cell-8-0" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-8-1" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-8-2" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-8-3" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-8-4" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-8-5" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-8-6" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-8-7" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                        <td><input id="cell-8-8" maxlength="1" inputmode="numeric" oninput="validateInput(this)" type="number"></td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+
+    <div id="buttons">
+        <button onclick=createJsonObj() style="margin-right: 25px" id="solve">Solve</button>
+        <button onclick=clearBoard() style="margin-right: 25px" id="clear">Clear</button>
+    </div>
+</body>
+</html>

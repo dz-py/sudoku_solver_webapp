@@ -1,0 +1,18 @@
+
+- add a logo
+- make site responsive
+
+new feature:
+    challenge button
+    - brings user to another page 
+    - contains multile difficulties 
+    - depending on the difficulty, the board generates different amount of numbers in different positions
+    - after filling in the board, user can check to see if their board is valid 
+
+
+    - wait 
+    - leaderboard function
+    - after use click the difficulty level, starts a timer, once finish timer end, append time to 
+    corressponding leaderboard
+    - need user login function to store leaderboard name and time 
+        - just username and passowrd, oauth2
