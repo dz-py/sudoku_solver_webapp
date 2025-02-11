@@ -1,6 +1,6 @@
 # Sudoku Solver
 
-A web-based Sudoku solver application that allows users to input Sudoku puzzles and automatically solves them using a backtracking algorithm. The application features a clean, intuitive interface with a responsive grid layout and real-time input validation.
+A web-based Sudoku solver application that allows users to input Sudoku puzzles and automatically solves them using a backtracking algorithm. The application features a clean, intuitive interface with a responsive grid layout and real-time input validation (WIP).
 
 ## Features
 
